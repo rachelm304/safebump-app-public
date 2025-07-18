@@ -193,6 +193,7 @@
             width: 100%;
             height: 100vh;
             object-fit: cover;
+            background: #000;
         }
 
         .camera-overlay {
@@ -261,6 +262,19 @@
             font-size: 16px;
             padding: 20px;
             background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
+        }
+
+        .camera-tips {
+            position: absolute;
+            top: 80px;
+            left: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.7);
+            color: white;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 14px;
+            text-align: center;
         }
 
         .result-section {
@@ -644,13 +658,16 @@
     </nav>
 
     <div id="camera-modal" class="camera-modal">
-        <video id="camera-video"></video>
+        <video id="camera-video" autoplay playsinline></video>
         <div class="camera-overlay">
             <div class="camera-viewfinder"></div>
         </div>
         <div class="camera-header">
             <button class="camera-close" id="closeCamera">Close</button>
             <button class="camera-capture" id="captureBtn">Capture</button>
+        </div>
+        <div class="camera-tips">
+            💡 Make sure ingredients text is clearly visible and well-lit
         </div>
         <div class="camera-hint">
             Position ingredient list in the blue frame and tap Capture
@@ -894,8 +911,17 @@ async function startCamera() {
         const video = document.getElementById('camera-video');
         video.srcObject = stream;
         
-        modal.classList.add('active');
-        cameraActive = true;
+        // Wait for video to load and start playing
+        video.onloadedmetadata = () => {
+            video.play().then(() => {
+                modal.classList.add('active');
+                cameraActive = true;
+            }).catch(err => {
+                console.error('Video play error:', err);
+                alert('Could not start camera preview. Please try again.');
+                stopCamera();
+            });
+        };
         
     } catch (err) {
         alert('Camera access denied. Please allow camera access and try again.');
