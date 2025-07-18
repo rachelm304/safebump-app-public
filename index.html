@@ -64,61 +64,36 @@
             box-shadow: 0 2px 8px rgba(0,0,0,0.08);
         }
 
-        .scan-button {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #00b4d8 0%, #0077b6 100%);
-            color: white;
-            border: none;
-            border-radius: 12px;
+        .help-card {
+            background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+            border: 2px solid #bbdefb;
+        }
+
+        .help-title {
             font-size: 18px;
             font-weight: 600;
+            color: #1976d2;
+            margin-bottom: 12px;
             display: flex;
             align-items: center;
-            justify-content: center;
-            gap: 12px;
-            cursor: pointer;
-            transition: all 0.3s;
-            -webkit-touch-callout: none;
-            -webkit-user-select: none;
-            user-select: none;
+            gap: 8px;
         }
 
-        .scan-button:active {
-            transform: scale(0.98);
+        .help-step {
+            background: white;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 8px;
+            border-left: 4px solid #2196f3;
         }
 
-        .scan-button:disabled {
-            background: #ccc;
-            cursor: not-allowed;
+        .help-step h4 {
+            color: #1976d2;
+            margin-bottom: 4px;
         }
 
-        .scan-icon {
-            width: 24px;
-            height: 24px;
-        }
-
-        .divider {
-            text-align: center;
-            margin: 20px 0;
-            position: relative;
-        }
-
-        .divider::before {
-            content: '';
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 1px;
-            background: #e0e0e0;
-        }
-
-        .divider span {
-            background: #f5f7fa;
-            padding: 0 20px;
-            position: relative;
-            color: #999;
+        .help-step p {
+            color: #666;
             font-size: 14px;
         }
 
@@ -130,7 +105,7 @@
             font-size: 16px;
             font-family: inherit;
             resize: vertical;
-            min-height: 120px;
+            min-height: 150px;
             transition: border-color 0.3s;
             -webkit-appearance: none;
         }
@@ -174,107 +149,22 @@
             color: #333;
         }
 
-        #camera-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: #000;
-            z-index: 1000;
-        }
-
-        #camera-modal.active {
-            display: block;
-        }
-
-        #camera-video {
+        .sample-button {
             width: 100%;
-            height: 100vh;
-            object-fit: cover;
-            background: #000;
-        }
-
-        .camera-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
-        }
-
-        .camera-viewfinder {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 90%;
-            max-width: 400px;
-            height: 200px;
-            border: 3px solid #00b4d8;
-            border-radius: 16px;
-            background: transparent;
-        }
-
-        .camera-header {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to bottom, rgba(0,0,0,0.8) 0%, transparent 100%);
-            padding: 20px;
-            z-index: 10;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .camera-close {
-            background: rgba(255,255,255,0.2);
-            border: 1px solid rgba(255,255,255,0.3);
-            color: white;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: 16px;
-            cursor: pointer;
-        }
-
-        .camera-capture {
-            background: #00b4d8;
-            border: none;
-            color: white;
-            padding: 12px 24px;
-            border-radius: 20px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .camera-hint {
-            position: absolute;
-            bottom: 100px;
-            left: 0;
-            right: 0;
-            text-align: center;
-            color: white;
-            font-size: 16px;
-            padding: 20px;
-            background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 100%);
-        }
-
-        .camera-tips {
-            position: absolute;
-            top: 80px;
-            left: 20px;
-            right: 20px;
-            background: rgba(0,0,0,0.7);
-            color: white;
             padding: 12px;
+            background: linear-gradient(135deg, #4caf50 0%, #45a049 100%);
+            color: white;
+            border: none;
             border-radius: 8px;
             font-size: 14px;
-            text-align: center;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 12px;
+            transition: all 0.3s;
+        }
+
+        .sample-button:active {
+            transform: scale(0.98);
         }
 
         .result-section {
@@ -431,15 +321,6 @@
             height: 24px;
         }
 
-        .offline-indicator {
-            background: #ff6b6b;
-            color: white;
-            padding: 8px;
-            text-align: center;
-            font-size: 14px;
-            display: none;
-        }
-
         .history-list {
             max-height: 400px;
             overflow-y: auto;
@@ -463,26 +344,6 @@
             color: #999;
         }
 
-        .processing-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.8);
-            display: none;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            color: white;
-            font-size: 18px;
-            z-index: 20;
-        }
-
-        .processing-overlay.active {
-            display: flex;
-        }
-
         @media (prefers-color-scheme: dark) {
             body {
                 background: #1a1a1a;
@@ -492,6 +353,16 @@
             .card, .ingredient-item, .history-item {
                 background: #2a2a2a;
                 color: #fff;
+            }
+            
+            .help-card {
+                background: linear-gradient(135deg, #1e3a8a 0%, #581c87 100%);
+                border-color: #3b82f6;
+            }
+            
+            .help-step {
+                background: #2a2a2a;
+                border-left-color: #3b82f6;
             }
             
             .app-header {
@@ -514,81 +385,38 @@
                 border-top: 1px solid #444;
             }
         }
-
-        /* PWA Install Prompt */
-        .install-prompt {
-            position: fixed;
-            bottom: 80px;
-            left: 20px;
-            right: 20px;
-            background: white;
-            border-radius: 12px;
-            padding: 16px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
-            display: none;
-            z-index: 200;
-        }
-
-        .install-prompt h3 {
-            margin-bottom: 8px;
-            font-size: 18px;
-        }
-
-        .install-prompt p {
-            color: #666;
-            font-size: 14px;
-            margin-bottom: 12px;
-        }
-
-        .install-buttons {
-            display: flex;
-            gap: 12px;
-        }
-
-        .install-btn {
-            flex: 1;
-            padding: 12px;
-            border: none;
-            border-radius: 8px;
-            font-size: 16px;
-            font-weight: 600;
-            cursor: pointer;
-        }
-
-        .install-btn.primary {
-            background: #667eea;
-            color: white;
-        }
-
-        .install-btn.secondary {
-            background: #f0f0f0;
-            color: #333;
-        }
     </style>
 </head>
 <body>
-    <div class="offline-indicator" id="offlineIndicator">
-        You are offline - Some features may be limited
-    </div>
-
     <div class="app-header">
         <h1>🤰 SafeBump</h1>
     </div>
 
     <div class="container">
         <div id="scanPage" class="page">
-            <div class="card">
-                <button class="scan-button" id="scanBtn">
-                    <svg class="scan-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"></path>
-                        <circle cx="12" cy="13" r="4"></circle>
-                    </svg>
-                    Scan Ingredients Label
+            <div class="card help-card">
+                <div class="help-title">
+                    📱 Quick Guide
+                </div>
+                
+                <div class="help-step">
+                    <h4>📸 Take a Photo</h4>
+                    <p>Use your phone's camera app to photograph the ingredient list</p>
+                </div>
+                
+                <div class="help-step">
+                    <h4>📝 Copy Text</h4>
+                    <p>Tap the photo → Select text → Copy the ingredients</p>
+                </div>
+                
+                <div class="help-step">
+                    <h4>✅ Paste & Check</h4>
+                    <p>Paste ingredients below and tap "Check Safety"</p>
+                </div>
+                
+                <button class="sample-button" onclick="loadSampleIngredients()">
+                    🧪 Try Sample Ingredients
                 </button>
-            </div>
-
-            <div class="divider">
-                <span>OR</span>
             </div>
 
             <div class="card">
@@ -597,7 +425,14 @@
                     <div class="product-brand" id="productBrand"></div>
                 </div>
 
-                <textarea id="ingredientInput" placeholder="Paste or type ingredient list here...&#10;&#10;Example:&#10;Water, Glycerin, Lanolin, Fragrance, etc."></textarea>
+                <textarea id="ingredientInput" placeholder="Paste ingredient list here...
+
+Examples:
+• Water, Glycerin, Fragrance
+• Retinol, Parabens, Salicylic Acid  
+• Lanolin, Balsam of Peru
+
+Tip: Your phone can copy text from photos! Take a picture of ingredients, then tap to select and copy the text."></textarea>
                 
                 <div class="button-group">
                     <button class="btn btn-primary" id="checkBtn">Check Safety</button>
@@ -610,7 +445,7 @@
 
         <div id="historyPage" class="page" style="display: none;">
             <div class="card">
-                <h2>Scan History</h2>
+                <h2>Check History</h2>
                 <div id="historyList" class="history-list"></div>
             </div>
         </div>
@@ -619,13 +454,19 @@
             <div class="card">
                 <h2>Settings</h2>
                 <div style="margin-top: 20px;">
-                    <h3>Your Allergies</h3>
+                    <h3>About SafeBump</h3>
                     <p style="color: #666; font-size: 14px; margin-top: 8px;">
-                        These are currently hardcoded. In a future update, you'll be able to customize your allergy list.
+                        SafeBump helps you check cosmetic and personal care ingredients for pregnancy safety and common allergens. This is for informational purposes only - always consult your healthcare provider.
                     </p>
                 </div>
                 <div style="margin-top: 20px;">
-                    <button class="btn btn-secondary" onclick="clearHistory()">Clear Scan History</button>
+                    <h3>Your Allergies</h3>
+                    <p style="color: #666; font-size: 14px; margin-top: 8px;">
+                        Currently checking for common allergens. Future updates will allow custom allergy lists.
+                    </p>
+                </div>
+                <div style="margin-top: 20px;">
+                    <button class="btn btn-secondary" onclick="clearHistory()">Clear History</button>
                 </div>
                 <div style="margin-top: 20px;">
                     <button class="btn btn-secondary" onclick="exportData()">Export Data</button>
@@ -640,7 +481,7 @@
                 <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                 <polyline points="9 22 9 12 15 12 15 22"></polyline>
             </svg>
-            Scan
+            Check
         </a>
         <a href="#history" class="nav-item" data-page="historyPage">
             <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -657,37 +498,6 @@
         </a>
     </nav>
 
-    <div id="camera-modal" class="camera-modal">
-        <video id="camera-video" autoplay playsinline></video>
-        <div class="camera-overlay">
-            <div class="camera-viewfinder"></div>
-        </div>
-        <div class="camera-header">
-            <button class="camera-close" id="closeCamera">Close</button>
-            <button class="camera-capture" id="captureBtn">Capture</button>
-        </div>
-        <div class="camera-tips">
-            💡 Make sure ingredients text is clearly visible and well-lit
-        </div>
-        <div class="camera-hint">
-            Position ingredient list in the blue frame and tap Capture
-        </div>
-        <div class="processing-overlay" id="processingOverlay">
-            <div class="loading"></div>
-            <div style="margin-top: 20px;">Reading ingredients...</div>
-        </div>
-    </div>
-
-    <div class="install-prompt" id="installPrompt">
-        <h3>Install SafeBump</h3>
-        <p>Add to your home screen for quick access and offline use</p>
-        <div class="install-buttons">
-            <button class="install-btn primary" id="installBtn">Install</button>
-            <button class="install-btn secondary" id="laterBtn">Later</button>
-        </div>
-    </div>
-
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/tesseract.js/4.1.1/tesseract.min.js"></script>
     <script>
 // Service Worker Registration
 if ('serviceWorker' in navigator) {
@@ -695,37 +505,6 @@ if ('serviceWorker' in navigator) {
         console.log('Service worker registration failed - running without offline support');
     });
 }
-
-// Offline Detection
-window.addEventListener('online', () => {
-    document.getElementById('offlineIndicator').style.display = 'none';
-});
-
-window.addEventListener('offline', () => {
-    document.getElementById('offlineIndicator').style.display = 'block';
-});
-
-// PWA Install Prompt
-let deferredPrompt;
-window.addEventListener('beforeinstallprompt', (e) => {
-    e.preventDefault();
-    deferredPrompt = e;
-    document.getElementById('installPrompt').style.display = 'block';
-});
-
-document.getElementById('installBtn').addEventListener('click', () => {
-    if (deferredPrompt) {
-        deferredPrompt.prompt();
-        deferredPrompt.userChoice.then((choiceResult) => {
-            deferredPrompt = null;
-            document.getElementById('installPrompt').style.display = 'none';
-        });
-    }
-});
-
-document.getElementById('laterBtn').addEventListener('click', () => {
-    document.getElementById('installPrompt').style.display = 'none';
-});
 
 // Database of allergens and unsafe ingredients
 const allergenDatabase = {
@@ -888,148 +667,25 @@ function normalizeIngredient(ingredient) {
     return ingredient.toLowerCase().trim().replace(/[^\w\s-]/g, '');
 }
 
-// Camera functionality
-let stream = null;
-let cameraActive = false;
-
-document.getElementById('scanBtn').addEventListener('click', startCamera);
-document.getElementById('closeCamera').addEventListener('click', stopCamera);
-document.getElementById('captureBtn').addEventListener('click', captureImage);
-
-async function startCamera() {
-    const modal = document.getElementById('camera-modal');
+// Load sample ingredients for testing
+function loadSampleIngredients() {
+    const sampleText = "Water, Glycerin, Retinol, Fragrance, Parabens, Balsam of Peru, Lanolin, Salicylic Acid";
+    document.getElementById('ingredientInput').value = sampleText;
     
-    try {
-        stream = await navigator.mediaDevices.getUserMedia({ 
-            video: { 
-                facingMode: 'environment',
-                width: { ideal: 1920 },
-                height: { ideal: 1080 }
-            } 
-        });
-        
-        const video = document.getElementById('camera-video');
-        video.srcObject = stream;
-        
-        // Wait for video to load and start playing
-        video.onloadedmetadata = () => {
-            video.play().then(() => {
-                modal.classList.add('active');
-                cameraActive = true;
-            }).catch(err => {
-                console.error('Video play error:', err);
-                alert('Could not start camera preview. Please try again.');
-                stopCamera();
-            });
-        };
-        
-    } catch (err) {
-        alert('Camera access denied. Please allow camera access and try again.');
-        console.error('Camera error:', err);
-    }
+    // Show product info
+    const productInfo = document.getElementById('productInfo');
+    const productName = document.getElementById('productName');
+    const productBrand = document.getElementById('productBrand');
+    
+    productInfo.style.display = 'block';
+    productName.textContent = 'Sample Product Test';
+    productBrand.textContent = 'This sample contains several flagged ingredients';
+    
+    // Automatically check the sample
+    checkIngredients();
 }
 
-function stopCamera() {
-    const modal = document.getElementById('camera-modal');
-    
-    if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-        stream = null;
-    }
-    
-    modal.classList.remove('active');
-    cameraActive = false;
-}
-
-async function captureImage() {
-    if (!stream) return;
-    
-    const video = document.getElementById('camera-video');
-    const canvas = document.createElement('canvas');
-    const context = canvas.getContext('2d');
-    
-    // Set canvas size to match video
-    canvas.width = video.videoWidth;
-    canvas.height = video.videoHeight;
-    
-    // Draw current video frame to canvas
-    context.drawImage(video, 0, 0);
-    
-    // Convert to blob
-    canvas.toBlob(async (blob) => {
-        // Show processing overlay
-        document.getElementById('processingOverlay').classList.add('active');
-        
-        try {
-            // Process with Tesseract OCR
-            const result = await Tesseract.recognize(blob, 'eng', {
-                logger: m => console.log(m)
-            });
-            
-            // Hide processing overlay
-            document.getElementById('processingOverlay').classList.remove('active');
-            
-            const extractedText = result.data.text.trim();
-            
-            if (extractedText) {
-                // Clean up the extracted text
-                const cleanedText = cleanupOCRText(extractedText);
-                
-                // Close camera and populate text area
-                stopCamera();
-                document.getElementById('ingredientInput').value = cleanedText;
-                
-                // Show product info
-                const productInfo = document.getElementById('productInfo');
-                const productName = document.getElementById('productName');
-                const productBrand = document.getElementById('productBrand');
-                
-                productInfo.style.display = 'block';
-                productName.textContent = 'Ingredients scanned from photo';
-                productBrand.textContent = 'Check the results below and edit if needed';
-                
-                // Automatically check ingredients
-                checkIngredients();
-                
-                // Save to history
-                saveToHistory({
-                    type: 'ocr',
-                    name: 'OCR Scan',
-                    ingredients: cleanedText,
-                    timestamp: new Date().toISOString()
-                });
-                
-            } else {
-                alert('Could not read text from image. Please try again with better lighting or a clearer photo.');
-            }
-            
-        } catch (error) {
-            // Hide processing overlay
-            document.getElementById('processingOverlay').classList.remove('active');
-            console.error('OCR Error:', error);
-            alert('Error processing image. Please try again.');
-        }
-    }, 'image/jpeg', 0.8);
-}
-
-function cleanupOCRText(text) {
-    // Remove common OCR artifacts and clean up the text
-    let cleaned = text
-        .replace(/[|]/g, 'I')  // Replace pipes with I
-        .replace(/[""]/g, '"') // Normalize quotes
-        .replace(/['']/g, "'") // Normalize apostrophes
-        .replace(/\s+/g, ' ')  // Multiple spaces to single space
-        .replace(/\n+/g, ', ') // Newlines to commas
-        .replace(/[,\s]+/g, ', ') // Clean up comma spacing
-        .replace(/,\s*,+/g, ',') // Remove double commas
-        .replace(/^,\s*/, '') // Remove leading comma
-        .replace(/,\s*$/, '') // Remove trailing comma
-        .trim();
-    
-    return cleaned;
-}
-
-// Check ingredients (same function as before)
+// Check ingredients
 function checkIngredients() {
     const input = document.getElementById('ingredientInput').value;
     if (!input.trim()) {
@@ -1138,7 +794,7 @@ function checkIngredients() {
     });
 }
 
-// Display results (same function as before)
+// Display results
 function displayResults(results) {
     const resultsDiv = document.getElementById('results');
     resultsDiv.style.display = 'block';
@@ -1162,7 +818,7 @@ function displayResults(results) {
         
         if (results.confirmedAllergies.length > 0) {
             html += '<div class="result-category danger">';
-            html += '<div class="category-header">⚠️ Confirmed Allergies (1+)</div>';
+            html += '<div class="category-header">⚠️ Confirmed Allergies</div>';
             results.confirmedAllergies.forEach(item => {
                 html += '<div class="ingredient-item">';
                 html += `<div class="ingredient-name">"${item.ingredient}" → ${item.allergen}</div>`;
@@ -1175,7 +831,7 @@ function displayResults(results) {
 
         if (results.potentialAllergies.length > 0) {
             html += '<div class="result-category warning">';
-            html += '<div class="category-header">❓ Potential Allergies (?)</div>';
+            html += '<div class="category-header">❓ Potential Allergies</div>';
             results.potentialAllergies.forEach(item => {
                 html += '<div class="ingredient-item">';
                 html += `<div class="ingredient-name">"${item.ingredient}" → ${item.allergen}</div>`;
@@ -1231,7 +887,7 @@ function displayResults(results) {
     resultsDiv.innerHTML = html;
 }
 
-// Local storage functions (same as before)
+// Local storage functions
 function saveToHistory(data) {
     const history = getHistory();
     history.unshift(data);
@@ -1248,7 +904,7 @@ function displayHistory() {
     const history = getHistory();
     
     if (history.length === 0) {
-        historyList.innerHTML = '<p style="color: #999;">No scan history yet</p>';
+        historyList.innerHTML = '<p style="color: #999;">No checks yet</p>';
         return;
     }
     
@@ -1256,8 +912,13 @@ function displayHistory() {
     history.forEach((item, index) => {
         const date = new Date(item.timestamp);
         html += `<div class="history-item" onclick="loadHistoryItem(${index})">`;
-        html += `<div class="product-name">${item.name || 'Manual Check'}</div>`;
-        if (item.brand) html += `<div class="product-brand">${item.brand}</div>`;
+        
+        // Show a preview of the ingredients
+        const ingredientPreview = item.ingredients ? 
+            item.ingredients.substring(0, 50) + (item.ingredients.length > 50 ? '...' : '') : 
+            'Ingredient Check';
+            
+        html += `<div class="product-name">${ingredientPreview}</div>`;
         html += `<div class="history-date">${date.toLocaleDateString()} ${date.toLocaleTimeString()}</div>`;
         html += '</div>';
     });
@@ -1277,7 +938,7 @@ function loadHistoryItem(index) {
 }
 
 function clearHistory() {
-    if (confirm('Clear all scan history?')) {
+    if (confirm('Clear all check history?')) {
         localStorage.removeItem('scanHistory');
         displayHistory();
     }
@@ -1296,7 +957,7 @@ function exportData() {
     linkElement.click();
 }
 
-// Navigation (same as before)
+// Navigation
 function showPage(pageId) {
     document.querySelectorAll('.page').forEach(page => {
         page.style.display = 'none';
