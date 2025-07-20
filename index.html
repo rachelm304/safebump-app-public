@@ -81,20 +81,17 @@
 
         .help-step {
             background: white;
-            padding: 12px;
+            padding: 8px 12px;
             border-radius: 8px;
             margin-bottom: 8px;
             border-left: 4px solid #2196f3;
-        }
-
-        .help-step h4 {
-            color: #1976d2;
-            margin-bottom: 4px;
+            text-align: center;
         }
 
         .help-step p {
             color: #666;
             font-size: 14px;
+            margin: 0;
         }
 
         textarea {
@@ -400,23 +397,8 @@
                 </div>
                 
                 <div class="help-step">
-                    <h4>📸 Take a Photo</h4>
-                    <p>Use your phone's camera app to photograph the ingredient list</p>
+                    <p>📸 Photo → 📝 Copy text → ✅ Paste & check</p>
                 </div>
-                
-                <div class="help-step">
-                    <h4>📝 Copy Text</h4>
-                    <p>Tap the photo → Select text → Copy the ingredients</p>
-                </div>
-                
-                <div class="help-step">
-                    <h4>✅ Paste & Check</h4>
-                    <p>Paste ingredients below and tap "Check Safety"</p>
-                </div>
-                
-                <button class="sample-button" onclick="loadSampleIngredients()">
-                    🧪 Try Sample Ingredients
-                </button>
             </div>
 
             <div class="card">
@@ -598,7 +580,7 @@ const allergenDatabase = {
     }
 };
 
-// Pregnancy unsafe ingredients
+// Pregnancy unsafe ingredients - EXPANDED
 const pregnancyUnsafe = {
     'Retinol/Retinoids': {
         alternates: ['retinol', 'retinyl palmitate', 'retinyl acetate', 'vitamin a', 'retinoids', 'retinoic acid', 'tretinoin', 'isotretinoin', 'adapalene', 'tazarotene', 'retinaldehyde', 'retinal', 'retin-a', 'differin', 'retinyl esters'],
@@ -639,6 +621,166 @@ const pregnancyUnsafe = {
         alternates: ['aluminum compounds', 'aluminum chloride', 'aluminum chlorohydrate', 'aluminum zirconium', 'drysol', 'certain dri', 'aluminium chloride', 'sodium aluminum phosphate', 'aluminum hydroxide', 'aluminum oxide'],
         reason: 'May cause neurological effects - limit use',
         type: 'both'
+    },
+    'Avobenzone': {
+        alternates: ['avobenzone', 'butyl methoxydibenzoylmethane', 'parsol 1789', '1-(4-methoxyphenyl)-3-(4-tert-butylphenyl)propane-1,3-dione'],
+        reason: 'Chemical sunscreen - high systemic absorption (9x FDA threshold)',
+        type: 'topical'
+    },
+    'Octinoxate': {
+        alternates: ['octinoxate', 'ethylhexyl methoxycinnamate', 'octyl methoxycinnamate', 'omc', 'ehmc', '2-ethylhexyl 4-methoxycinnamate'],
+        reason: 'Chemical sunscreen - mimics estrogen, disrupts thyroid (16x FDA threshold)',
+        type: 'topical'
+    },
+    'Homosalate': {
+        alternates: ['homosalate', '3,3,5-trimethylcyclohexyl salicylate', 'homomenthyl salicylate'],
+        reason: 'Chemical sunscreen - blocks testosterone, metabolizes to salicylic acid',
+        type: 'topical'
+    },
+    'Octocrylene': {
+        alternates: ['octocrylene', '2-ethylhexyl 2-cyano-3,3-diphenylacrylate', 'octocrilene'],
+        reason: 'Chemical sunscreen - degrades to carcinogenic benzophenone',
+        type: 'topical'
+    },
+    'Octisalate': {
+        alternates: ['octisalate', 'ethylhexyl salicylate', 'octyl salicylate', '2-ethylhexyl salicylate'],
+        reason: 'Chemical sunscreen - systemic absorption concerns',
+        type: 'topical'
+    },
+    'Ensulizole': {
+        alternates: ['ensulizole', 'phenylbenzimidazole sulfonic acid', 'pbsa', '2-phenylbenzimidazole-5-sulfonic acid'],
+        reason: 'Chemical sunscreen - potential hormone disruption',
+        type: 'topical'
+    },
+    'Triclosan': {
+        alternates: ['triclosan', 'microban', 'irgasan', 'cloxifenolum', 'triclocarban', '2,4,4\'-trichloro-2\'-hydroxydiphenyl ether'],
+        reason: 'Linked to reduced birth weight, length, head circumference',
+        type: 'topical'
+    },
+    'Phenoxyethanol': {
+        alternates: ['phenoxyethanol', '2-phenoxyethanol', 'phenoxytol', 'rose ether', 'euxyl k 400'],
+        reason: 'High skin absorption (47-85%), nervous system depressant',
+        type: 'topical'
+    },
+    'DMDM Hydantoin': {
+        alternates: ['dmdm hydantoin', '1,3-dimethylol-5,5-dimethylhydantoin', 'glydant', 'dantogard'],
+        reason: 'Formaldehyde-releasing preservative - ongoing toxic exposure',
+        type: 'topical'
+    },
+    'Quaternium-15': {
+        alternates: ['quaternium-15', 'dowicil 200', 'quaternium 15', 'hexamethylenetetramine chloroallyl chloride'],
+        reason: 'Formaldehyde-releasing preservative - carcinogen risk',
+        type: 'topical'
+    },
+    'Diazolidinyl Urea': {
+        alternates: ['diazolidinyl urea', 'germall ii', '1-(1,3-bis(hydroxymethyl)-2,5-dioxoimidazolidin-4-yl)-1,3-bis(hydroxymethyl)urea'],
+        reason: 'Formaldehyde-releasing preservative - antimicrobial with toxic breakdown',
+        type: 'topical'
+    },
+    'Imidazolidinyl Urea': {
+        alternates: ['imidazolidinyl urea', 'germall 115', 'imidurea', 'n,n\'-bis(hydroxymethyl)-n,n\'-2,5-dioxo-4-imidazolidinyl)urea'],
+        reason: 'Formaldehyde-releasing preservative - carcinogenic breakdown products',
+        type: 'topical'
+    },
+    'Sodium Hydroxymethylglycinate': {
+        alternates: ['sodium hydroxymethylglycinate', 'suttocide a', 'glycine, n-(hydroxymethyl)-, sodium salt'],
+        reason: 'Formaldehyde-releasing preservative - increases formaldehyde over time',
+        type: 'topical'
+    },
+    'Clary Sage Oil': {
+        alternates: ['clary sage oil', 'salvia sclarea oil', 'clary sage extract', 'salvia sclarea extract', 'clary oil'],
+        reason: 'Uterine stimulant - may trigger contractions',
+        type: 'topical'
+    },
+    'Sage Oil': {
+        alternates: ['sage oil', 'salvia officinalis oil', 'garden sage oil', 'common sage oil', 'sage extract', 'salvia officinalis extract'],
+        reason: 'Contains thujone and camphor - abortifacient properties',
+        type: 'topical'
+    },
+    'Rosemary Oil': {
+        alternates: ['rosemary oil', 'rosmarinus officinalis oil', 'rosemary extract', 'rosmarinus officinalis extract'],
+        reason: 'Uterine stimulation and hypertensive properties',
+        type: 'topical'
+    },
+    'Jasmine Absolute': {
+        alternates: ['jasmine absolute', 'jasminum grandiflorum flower extract', 'jasmine oil', 'jasmine extract', 'jasminum officinale'],
+        reason: 'Potential uterine stimulation and hormone-like effects',
+        type: 'topical'
+    },
+    'Lilial': {
+        alternates: ['lilial', 'butylphenyl methylpropional', 'bmhca', 'lily aldehyde', 'p-tert-butyl-alpha-methylhydrocinnamic aldehyde'],
+        reason: 'EU banned - reproductive toxicity, preterm birth risk',
+        type: 'topical'
+    },
+    'Diethyl Phthalate': {
+        alternates: ['diethyl phthalate', 'dep', 'phthalic acid diethyl ester', 'ethyl phthalate'],
+        reason: 'Hidden in fragrance - endocrine disruption, preterm birth',
+        type: 'topical'
+    },
+    'Galaxolide': {
+        alternates: ['galaxolide', 'hhcb', '1,3,4,6,7,8-hexahydro-4,6,6,7,8,8-hexamethylcyclopenta[g]-2-benzopyran'],
+        reason: 'Synthetic musk - bioaccumulates in breast milk and cord blood',
+        type: 'topical'
+    },
+    'Tonalide': {
+        alternates: ['tonalide', 'ahtn', '7-acetyl-1,1,3,4,4,6-hexamethyl-1,2,3,4-tetrahydronaphthalene'],
+        reason: 'Synthetic musk - bioaccumulates, detected in fetal blood',
+        type: 'topical'
+    },
+    'Dibutyl Phthalate': {
+        alternates: ['dibutyl phthalate', 'dbp', 'phthalic acid dibutyl ester', 'di-n-butyl phthalate'],
+        reason: 'Nail polish plasticizer - reproductive toxicity, EU banned',
+        type: 'topical'
+    },
+    'Triphenyl Phosphate': {
+        alternates: ['triphenyl phosphate', 'tphp', 'phosphoric acid triphenyl ester', 'tpp'],
+        reason: 'Nail polish plasticizer - endocrine disruption potential',
+        type: 'topical'
+    },
+    'Toluene': {
+        alternates: ['toluene', 'methylbenzene', 'toluol', 'phenylmethane'],
+        reason: 'Neurological effects, developmental toxicity, growth restriction',
+        type: 'topical'
+    },
+    'Camphor': {
+        alternates: ['camphor', 'd-camphor', 'natural camphor', '1,7,7-trimethylbicyclo[2.2.1]heptan-2-one'],
+        reason: 'Neurotoxic potential - limited pregnancy safety data',
+        type: 'topical'
+    },
+    'Ethyl Tosylamide': {
+        alternates: ['ethyl tosylamide', 'n-ethyl-p-toluenesulfonamide', 'n-ethyl tosylamide'],
+        reason: 'Nail polish ingredient - limited pregnancy safety data',
+        type: 'topical'
+    },
+    'Xylene': {
+        alternates: ['xylene', 'dimethylbenzene', 'xylol', 'methyltoluene'],
+        reason: 'Solvent with neurotoxic potential - inhalation concerns',
+        type: 'topical'
+    },
+    'High-Concentration Glycolic Acid': {
+        alternates: ['glycolic acid', 'hydroxyacetic acid', 'alpha hydroxy acid', 'aha'],
+        reason: 'Above 10% may cause systemic effects and UV sensitivity',
+        type: 'topical'
+    },
+    'Acetyl Hexapeptide-8': {
+        alternates: ['acetyl hexapeptide-8', 'argireline', 'acetyl hexapeptide-3'],
+        reason: 'Neuromodulatory effects - limited pregnancy safety data',
+        type: 'topical'
+    },
+    'Coal Tar Dyes': {
+        alternates: ['coal tar dyes', 'fd&c colors', 'd&c colors', 'ci colors', 'artificial colors', 'synthetic dyes'],
+        reason: 'Heavy metal contamination, lead content affects development',
+        type: 'topical'
+    },
+    'Finasteride': {
+        alternates: ['finasteride', 'propecia', 'proscar'],
+        reason: 'Pregnancy Category X - male genital malformations',
+        type: 'topical'
+    },
+    'Spironolactone': {
+        alternates: ['spironolactone', 'aldactone'],
+        reason: 'Pregnancy Category X - feminization of male fetuses',
+        type: 'topical'
     }
 };
 
