@@ -806,7 +806,13 @@ const generallyUnsafe = {
 
 // Normalize ingredient names for matching
 function normalizeIngredient(ingredient) {
-    return ingredient.toLowerCase().trim().replace(/[^\w\s-]/g, '');
+    return ingredient
+        .toLowerCase()
+        .replace(/\([^)]*\)/g, '')     // Remove parentheses and everything inside them
+        .replace(/\d+\.?\d*%/g, '')    // Remove percentages (like 10% or 16.0%)
+        .replace(/[^\w\s-]/g, '')      // Remove other punctuation
+        .trim()                        // Remove extra spaces
+        .replace(/\s+/g, ' ');         // Normalize multiple spaces to single space
 }
 
 // Load sample ingredients for testing
